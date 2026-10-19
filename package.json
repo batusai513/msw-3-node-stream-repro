@@ -1,0 +1,14 @@
+{
+  "name": "msw-3-node-stream-repro",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node repro.mjs"
+  },
+  "dependencies": {
+    "msw": "3.0.3"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}
