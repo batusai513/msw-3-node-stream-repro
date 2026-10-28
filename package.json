@@ -3,9 +3,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node repro.mjs"
+    "start": "node repro.mjs",
+    "interceptors": "node interceptors.mjs"
   },
   "dependencies": {
+    "@mswjs/interceptors": "0.45.10",
     "msw": "3.0.3"
   },
   "engines": {

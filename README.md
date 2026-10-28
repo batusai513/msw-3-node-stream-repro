@@ -46,3 +46,30 @@ done (no "handler:" line above means the abort was not seen)
 
 In the browser (`setupWorker`, 3.0.3) the response arrives before the first
 chunk, and an abort calls the stream's `cancel()`.
+
+## Without msw
+
+`interceptors.mjs` shows the same two behaviours with `@mswjs/interceptors`
+alone (`FetchInterceptor`). Both changed in 0.42.0.
+
+```bash
+npm run interceptors
+npm install @mswjs/interceptors@0.41.9 --no-save && npm run interceptors
+```
+
+@mswjs/interceptors 0.45.10 (same on 0.42.0):
+
+```
+fetch() before the first chunk: pending after 500 ms
+fetch() after the first chunk: 200
+done (no "listener:" line above means the abort was not seen)
+```
+
+@mswjs/interceptors 0.41.9:
+
+```
+fetch() before the first chunk: resolved
+fetch() after the first chunk: 200
+listener: request.signal aborted
+done (no "listener:" line above means the abort was not seen)
+```
